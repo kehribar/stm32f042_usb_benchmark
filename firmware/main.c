@@ -4,6 +4,7 @@
 // ----------------------------------------------------------------------------
 #include <stdlib.h>
 #include "usb.h"
+#include "systick_delay.h"
 
 // ----------------------------------------------------------------------------
 #include <libopencm3/stm32/rcc.h>
@@ -28,14 +29,13 @@ int main()
   // ...
   while(1) 
   {
-
-    // ...
+    // ..
     usb_poll();
 
     // ------------------------------------------------------------------------
     // Loopback test
     // ------------------------------------------------------------------------
-    #if 1
+    #if 0
       if(usb_isConnected())
       {
         int32_t amount = usb_rxDataAmount();
@@ -68,6 +68,7 @@ void hardware_init()
 {
   // ...
   rcc_clock_setup_in_hsi_out_48mhz();
+  systick_delay_init();
 
   // ...
   usb_init();

@@ -9,7 +9,7 @@ PROJECT = main
 SHARED_DIR = 
 
 # ...
-CFILES = main.c usb.c
+CFILES = main.c usb.c systick_delay.c
 
 # ...
 CFLAGS += -Wno-unused-parameter -Wno-strict-prototypes
